@@ -19,7 +19,7 @@ function genereteCardTemplate(car) {
     `;
 }
 
-const cardsTemplate = cars.reduce((previous, current) =>
+const cardsHtml = cars.reduce((previous, current) =>
     `${(previous instanceof Object) ? genereteCardTemplate(previous) : previous}  ${genereteCardTemplate(current)}`);
 
-document.querySelector(".list").innerHTML = cardsTemplate;
+document.querySelector(".list").innerHTML = cardsHtml;
