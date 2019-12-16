@@ -22,7 +22,8 @@ class App extends React.Component {
 			{ name: "Rolls Royce", isMarked: false, price: 50000, img: "http://a2goos.com/data_images/models/rolls-royce-phantom-coupe/rolls-royce-phantom-coupe-03.jpg" },
 			{ name: "Mercedes Amg Coupe", isMarked: false, price: 18000, img: "https://auto.ndtvimg.com/car-images/big/mercedes-amg/gle-coupe/mercedes-amg-gle-coupe.jpg?v=2" },
 		],
-		visible: true
+		visible: true,
+		appTitle: "Cars app"
 	}
 
 	onCardClicked(carName) {
@@ -55,10 +56,30 @@ class App extends React.Component {
 		this.setState({visible: !this.state.visible})
 	}
 
+	titleChangeHandler(title) {
+		if (title.trim() === "") {
+			return;
+		}
+		this.setState({ appTitle: title });
+	}
+
 	render() {
+		const style = {
+			marginRight: 5
+		}
 		return (
 			<div className="app">
-				<button onClick={() => this.toggleHandler()}>Toogle</button>
+				<h1>{this.state.appTitle}</h1>
+				<button 
+					onClick={() => this.toggleHandler()}
+					style={style}>Toogle
+				</button>
+				<input
+					type="text" 
+					placeholder="Change title"
+					onChange={(event) => this.titleChangeHandler(event.target.value)}
+					value={this.state.appTitle}
+				/>
 				<hr></hr>
 				<div className="list">				
 					{this.renderCars()}
