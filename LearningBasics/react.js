@@ -21,7 +21,8 @@ class App extends React.Component {
 			{ name: "Audi TT", isMarked: false, price: 15000, img: "https://article.images.consumerreports.org/w_598,h_436/prod/content/dam/cro/news_articles/cars/2016-Audi-TT-pr-1-2016-598" },
 			{ name: "Rolls Royce", isMarked: false, price: 50000, img: "http://a2goos.com/data_images/models/rolls-royce-phantom-coupe/rolls-royce-phantom-coupe-03.jpg" },
 			{ name: "Mercedes Amg Coupe", isMarked: false, price: 18000, img: "https://auto.ndtvimg.com/car-images/big/mercedes-amg/gle-coupe/mercedes-amg-gle-coupe.jpg?v=2" },
-		]
+		],
+		visible: true
 	}
 
 	onCardClicked(carName) {
@@ -35,6 +36,10 @@ class App extends React.Component {
 	}
 
 	renderCars() {
+		if (!this.state.visible) {
+			return;
+		}
+		
 		return this.state.cars.map(car => {
 			return (
 				<Card
@@ -46,10 +51,16 @@ class App extends React.Component {
 		});
 	}
 
+	toggleHandler() {
+		this.setState({visible: !this.state.visible})
+	}
+
 	render() {
 		return (
 			<div className="app">
-				<div className="list">
+				<button onClick={() => this.toggleHandler()}>Toogle</button>
+				<hr></hr>
+				<div className="list">				
 					{this.renderCars()}
 				</div>
 			</div>
