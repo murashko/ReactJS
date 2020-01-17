@@ -1,10 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Info from './info';
 
 class App extends React.Component {
 	render() {
 		return (
-			<div>Hi there</div>
+			<div>
+				<Info />
+			</div>
 		)
 	}
 }
