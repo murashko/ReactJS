@@ -1,6 +1,7 @@
 import React from 'react';
 import Ninjas from './Ninjas';
 import AddNinja from './AddNinja';
+import './App.css';
 
 class App extends React.Component {
 	state = {
@@ -37,7 +38,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div className="app">
 				<h1>My React app!</h1>
 				<p>Wellcome :)</p>
 				<Ninjas ninjas={ this.state.ninjas } deleteNinja={ this.deleteNinja } />
