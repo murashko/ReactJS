@@ -12,7 +12,7 @@ class App extends Component {
 
 	addTodo = (todo) => {
 		const {todos} = this.state;
-		todo.id = todos.reduce((first, second) => Math.max(first.id, second.id)) + 1;
+		todo.id = todos.reduce((first, second) => Math.max(first.id, second.id), 0) + 1;
 		const newTodos = [...todos, todo];
 		this.setState({
 			todos: newTodos
