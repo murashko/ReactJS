@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {Link, NavLink, withRouter} from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
+	setTimeout(() => props.history.push('/about'), 2000);
 	return (
 		<nav className="nav-valign-wrapper red darken-3">
 			<div className="container">
@@ -16,4 +17,4 @@ const Navbar = () => {
 	)
 }
 
-export default Navbar;
+export default withRouter(Navbar);
